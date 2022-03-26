@@ -24,10 +24,10 @@ ENV PYTHONDONTWRITEBYTECODE=1
 # Show messages on the console
 ENV PYTHONUNBUFFERED=1
 
-# COPY --chown=python:python requirements.txt ./
-# ENV PATH="/home/python/.local/bin:$PATH"
-# RUN pip3 install -r requirements.txt
+COPY --chown=python:python requirements.txt ./
+ENV PATH="/home/python/.local/bin:$PATH"
+RUN pip3 install -r requirements.txt
 
-# COPY --chown=python:python . .
-# RUN chmod +x start.sh
-# CMD ./start.sh
+COPY --chown=python:python . .
+RUN chmod +x start.sh
+CMD ./start.sh
